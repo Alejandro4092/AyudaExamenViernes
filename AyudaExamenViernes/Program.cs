@@ -42,8 +42,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(
-        Path.Combine(builder.Environment.ContentRootPath, "Imagenes")),
-    RequestPath = "/imagenes"
+        Path.Combine(builder.Environment.ContentRootPath, "Fotos")),
+    RequestPath = "/Fotos"
 });
 
 app.UseAuthorization();
