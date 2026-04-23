@@ -43,3 +43,54 @@
         }
     }
 }
+
+
+
+//namespace practicaExamenViernes.Helpers
+//{
+//    public class HelperConvertirFoto
+//    {
+//        private IWebHostEnvironment hostEnvironment;
+
+//        public HelperConvertirFoto(IWebHostEnvironment hostEnvironment)
+//        {
+//            this.hostEnvironment = hostEnvironment;
+//        }
+
+//        public async Task<byte[]> ConvertirFotoABytesAsync(IFormFile foto)
+//        {
+//            if (foto == null || foto.Length == 0) return null;
+
+//            using (var memoryStream = new MemoryStream())
+//            {
+//                await foto.CopyToAsync(memoryStream);
+//                return memoryStream.ToArray();
+//            }
+//        }
+
+//        public async Task<string> GuardarFotoAsync(byte[] fotoBytes, string nombreOriginal, string carpeta)
+//        {
+//            if (fotoBytes == null) return null;
+
+//            string nombreArchivo = Guid.NewGuid().ToString() + "_" + nombreOriginal;
+
+//            string path = Path.Combine(this.hostEnvironment.WebRootPath, carpeta, nombreArchivo);
+
+//            await System.IO.File.WriteAllBytesAsync(path, fotoBytes);
+
+//            return $"/{carpeta}/{nombreArchivo}";
+//        }
+
+//        public async Task<string> GuardarFotoDesdeBase64Async(string base64, string nombreOriginal, string carpeta)
+//        {
+//            if (string.IsNullOrEmpty(base64)) return null;
+
+//            // Eliminar el prefijo data:image/png;base64, si viene incluido
+//            if (base64.Contains(","))
+//                base64 = base64.Split(',')[1];
+
+//            byte[] fotoBytes = Convert.FromBase64String(base64);
+//            return await GuardarFotoAsync(fotoBytes, nombreOriginal, carpeta);
+//        }
+//    }
+//}
