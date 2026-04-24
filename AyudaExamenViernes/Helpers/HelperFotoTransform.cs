@@ -40,7 +40,24 @@
 
             // Retornamos el nombre para guardarlo en la base de datos
             return nombreArchivo;
+
+
+
+
         }
+        //public async Task<string> GuardarArchivoByteAsync(byte[] datosImagen, string nombreOriginal, string carpeta)
+        //{
+        //    if (datosImagen == null) return null;
+
+        //    string nombreArchivo = Guid.NewGuid().ToString() + "_" + nombreOriginal;
+
+        //    // IMPORTANTE: WebRootPath apunta a wwwroot
+        //    string path = Path.Combine(this.hostEnvironment.WebRootPath, carpeta, nombreArchivo);
+
+        //    await System.IO.File.WriteAllBytesAsync(path, datosImagen);
+
+        //    return nombreArchivo;
+        //}
     }
 }
 

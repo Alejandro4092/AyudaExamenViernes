@@ -3,6 +3,7 @@ using AyudaExamenViernes.Models;
 using AyudaExamenViernes.Models.DTOs;
 using AyudaExamenViernes.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace AyudaExamenViernes.Controllers
 {
@@ -103,6 +104,15 @@ namespace AyudaExamenViernes.Controllers
             // 2. Pasarle la carpeta parametrizada al Helper
             string nombreArchivo = await this.helperFoto.GuardarArchivoByteAsync(imagenBytes, request.Imagen.FileName, carpeta);
             await this.repo.InsertComicAsync(request.Id, request.Nombre, request.Descripcion, nombreArchivo);
+
+            //// Recuperas "fotos" desde el appsettings.json
+            //string carpetaDestino = this.configuration.GetValue<string>("RutasFicheros:CarpetaImagenes");
+
+            //// Llamas al helper, que ahora utiliza WebRootPath (wwwroot)
+            //string nombreArchivoFinal = await this.helperFoto.GuardarArchivoByteAsync(
+            //    imagenBytes,
+            //    imagen.FileName,
+            //    carpetaDestino // "fotos"
 
             return Ok(new
             {
